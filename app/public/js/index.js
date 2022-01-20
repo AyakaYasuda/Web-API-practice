@@ -17,7 +17,7 @@ const indexModule = (() => {
     case '/create.html':
       // add an event listener that occurs when you click the save button
       document.getElementById('save-btn').addEventListener('click', () => {
-        return usersModule.createUsers();
+        return usersModule.createUser();
       });
 
       // add an event listener that occurs when you click the cancel button
@@ -25,6 +25,27 @@ const indexModule = (() => {
         return (window.location.href = '/');
       });
       break;
+
+    case '/edit.html':
+      // get user id
+      const uid = window.location.search.split('?uid=')[1];
+
+      // add an event listener that occurs when you click the save button
+      document.getElementById('save-btn').addEventListener('click', () => {
+        return usersModule.saveUser(uid);
+      });
+
+      // add an event listener that occurs when you click the cancel button
+      document.getElementById('cancel-btn').addEventListener('click', () => {
+        return (window.location.href = '/');
+      });
+
+      // add an event listener that occurs when you click the delete button
+      document.getElementById('delete-btn').addEventListener('click', () => {
+        return usersModule.deleteUser(uid);
+      });
+
+      return usersModule.setExistingValue(uid);
 
     default:
       break;
