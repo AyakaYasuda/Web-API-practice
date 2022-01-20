@@ -1,0 +1,19 @@
+##Create users table
+
+CREATE TABLE users (  
+  id INTEGER NOT NULL PRIMARY KEY, 
+  name TEXT NOT NULL, 
+  profile TEXT, 
+  created_at TEXT NOT NULL DEFAULT (DATETIME('now', 'localtime')), 
+  updated_at TEXT NOT NULL DEFAULT (DATETIME('now', 'localtime')), 
+  date_of_birth TEXT
+);
+
+
+##Create sample data
+
+INSERT INTO users (name, profile) VALUES ("Subaru", "Hello from Japan");
+INSERT INTO users (name, profile) VALUES ("Emily", "Hi, I live in Paris");
+INSERT INTO users (name, profile) VALUES ("Ron", "Nice to meet you");
+INSERT INTO users (name, profile) VALUES ("Reonald", "How are you?");
+INSERT INTO users (name, profile) VALUES ("Ros", "What's up?");

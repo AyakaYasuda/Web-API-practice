@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web API practice</title>
+    <script src="js/search.js" defer></script>
+    <script src="js/users.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <main>
+      <h1>User Management</h1>
+      <label for="search">Search by User Name</label>
+      <input type="text" id="search" />
+      <button id="search-btn">Search!</button>
+      <a href="./create.html">Create a new user</a>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Profile</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Resistration Date</th>
+            <th scope="col">Update Date</th>
+            <th scope="col">Menu</th>
+          </tr>
+        </thead>
+        <tbody id="users-list"></tbody>
+      </table>
+    </main>
+  </body>
+</html>
