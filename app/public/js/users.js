@@ -8,6 +8,32 @@ const usersModule = (() => {
   const headers = new Headers();
   headers.set('Content-Type', 'application/json');
 
+  const handleError = async res => {
+    const resJSON = await res.json();
+
+    switch (res.status) {
+      case 200:
+        alert(resJSON.message);
+        window.location.href = '/';
+        break;
+      case 201:
+        alert(resJSON.message);
+        window.location.href = '/';
+        break;
+      case 400: // wrong params
+        alert(resJSON.error);
+        break;
+      case 404: // resource is not found
+        alert(resJSON.error);
+        break;
+      case 500: // internal server error
+        alert(resJSON.error);
+        break;
+      default:
+        alert('Sorry... something went wrong!');
+    }
+  };
+
   return {
     fetchAllUsers: async () => {
       const res = await fetch(BASE_URL);
@@ -49,10 +75,8 @@ const usersModule = (() => {
         headers: headers,
         body: JSON.stringify(body),
       });
-      const resJSON = await res.json();
 
-      alert(resJSON.message);
-      window.location.href = '/';
+      return handleError(res);
     },
 
     setExistingValue: async uid => {
@@ -81,10 +105,8 @@ const usersModule = (() => {
         headers: headers,
         body: JSON.stringify(body),
       });
-      const resJSON = await res.json();
 
-      alert(resJSON.message);
-      window.location.href = '/';
+      return handleError(res);
     },
 
     deleteUser: async uid => {
@@ -97,10 +119,7 @@ const usersModule = (() => {
           method: 'DELETE',
           headers: headers,
         });
-        const resJSON = await res.json();
-
-        alert(resJSON.message);
-        window.location.href = '/';
+        return handleError(res);
       }
     },
   };
